@@ -46,7 +46,7 @@ export default function Index () {
                         <FontAwesome name="user-circle" size={24} color="black" />
                         <Text>{item.createdBy.length > 24 ? `${item.createdBy.slice(0,24)}...` : item.createdBy}</Text>
                       </View>
-                      <Link href="/events-details" className="p-3 text-white font-bold bg-teal-800 rounded-md">
+                      <Link href={`/event-details/${item.id}`} className="p-3 text-white font-bold bg-teal-800 rounded-md">
                       <Text>Event Details</Text>
                        
                       </Link>
