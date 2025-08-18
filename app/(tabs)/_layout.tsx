@@ -13,7 +13,7 @@ export default function _Layout () {
             options={{
                 title: "Feeds",
                 headerShown: false,
-                tabBarIcon: ({ color}) => <MaterialIcons name="dynamic-feed" size={34} color={color} />
+                tabBarIcon: ({ color}) => <MaterialIcons name="home" size={30} color={color} />
             }}/>
 
             <Tabs.Screen
@@ -21,7 +21,7 @@ export default function _Layout () {
             options={{
                 title: "Profile",
                 headerShown: false,
-                tabBarIcon: ({ color}) => <FontAwesome5 name="user" size={34} color={color} />
+                tabBarIcon: ({ color}) => <FontAwesome5 name="user" size={30} color={color} />
             }}/>
 
             <Tabs.Screen
@@ -29,7 +29,14 @@ export default function _Layout () {
             options={{
                 title: "saved",
                 headerShown: false,
-                tabBarIcon: ({ color}) => <MaterialIcons name="bookmark" size={34} color={color} />
+                tabBarIcon: ({ color}) => <MaterialIcons name="bookmark" size={30} color={color} />
+            }}/>
+            <Tabs.Screen
+            name="create"
+            options={{
+                title: "Create",
+                headerShown: false,
+                tabBarIcon: ({ color}) => <MaterialIcons name="add-circle-outline" size={30} color={color} />
             }}/>
             
         </Tabs>

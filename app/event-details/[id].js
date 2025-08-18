@@ -55,7 +55,7 @@ export default function EventDetails () {
                 {/* body area */}
                 <View className="flex justify-between gap-y-2 px-3">
                   <EventSnippet mainTitle={data.time} subTitle={data.date} iconName="event-note"/>
-                  <EventSnippet mainTitle={data.title} subTitle={data.createdBy} iconName="party-mode" />
+                  <EventSnippet mainTitle={data.title} subTitle={data.createdBy} iconName="approval" />
                   <EventSnippet mainTitle={decideFee(data.free,data.fee)} subTitle={convertTimestamp(data.createdAt)} iconName="account-balance-wallet" />
                   <EventSnippet mainTitle={data.venue} subTitle={data.school} iconName="place" />
                
