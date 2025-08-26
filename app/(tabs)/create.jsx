@@ -2,14 +2,29 @@ import { HowToCreateEvent } from "@/assets/local_data/how-to-create-event";
 import { formatTimestampToDate } from "@/utils/format-date.utils";
 import { themeColors } from "@/utils/theme.utils";
 import DateTimePicker from "@react-native-community/datetimepicker";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Platform, ScrollView, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import RNPickerSelect from "react-native-picker-select";
 
 export default function Create () {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [venue, setVenue] = useState("");
+  const [schoolOptions,setSchoolOptions] = useState([]);
+  const [selectedSchool,setSelectedSchool] = useState("");
   const [date,setDate] = useState(new Date());
-  const [showPicker,setShowPicker] = useState(false)
+  const [showPicker,setShowPicker] = useState(false);
+
+  //make a simple list of schools
+  useEffect(() => {
+    const list = [];
+    school.forEach(list.push({
+      label: item.title,
+      value: item.symbol
+    }));
+    setSchoolOptions(list);
+  },[])
+
 
   const onChange = (event, selectedDate) => {
       const currentDate = selectedDate || date;
@@ -36,7 +51,7 @@ export default function Create () {
               <TextInput 
               multiline={true}
 
-              style={styles.textArea}
+              style={styles.input}
               placeholder="description of your events"
               value={description}
               onChangeText={(text) => setDescription(text)}/>
@@ -45,12 +60,7 @@ export default function Create () {
             <View>
               <TouchableOpacity
                 onPress={() => setShowPicker(true)}
-                style={{
-                  backgroundColor: themeColors.darkGray,
-                  borderRadius: 50,
-                  paddingHorizontal: 16,
-                  paddingVertical: 8
-                }}
+                style={styles.picker}
                 className="flex flex-row justify-between items-center">
                 <Text className="font-bold text-lg text-neutral-100">{formatTimestampToDate(date)}</Text>
                 <Text className="font-bold text-2xl text-neutral-100">Select Event Date</Text>
@@ -64,7 +74,26 @@ export default function Create () {
               )}
             </View>
 
+            <View>
+              <Text className="text-xs text-neutral-500">Event Venue</Text>
+              <TextInput 
+              style={styles.input}
+              placeholder="exact event venue"
+              value={venue}
+              onChangeText={(text) => setVenue(text)}/>
+            </View>
+
+
+            {schoolOptions.length > 0 &&
+            <View>
+              <Text>choose school where event will be held</Text>
+              <RNPickerSelect
+              items={SchoolOptions}
+              onValueChange={(item) => setSelectedSchool(item)} 
+              value={selectedSchool}/>
+            </View>}
           </View>
+          
           {/* how to create event - documentation */}
           <View className="flex gap-4 bg-white rounded-md p-3">
             {HowToCreateEvent.map(item => (
@@ -101,4 +130,19 @@ const styles = StyleSheet.create ({
       borderRadius: 8,
       fontSize: 16
     },
+    input: {
+      borderWidth: 1,
+      borderColor: themeColors.Gray200,
+      paddingHorizontal: 16,
+      paddingVertical: 8,
+      borderRadius: 8,
+      fontSize: 16
+    },
+    picker: 
+      {
+        backgroundColor: themeColors.darkGray,
+        borderRadius: 8,
+        paddingHorizontal: 16,
+        paddingVertical: 8
+      }
   })
