@@ -30,7 +30,7 @@ export function EventSnippet ({ data }) {
           height: 400,
           resizeMode: "cover"
         }}
-        source={{ uri: data.bannerUrl }}
+        source={{ uri: data.imgUrl }}
         alt="event photo"
         />
 

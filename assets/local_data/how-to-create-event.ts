@@ -1,6 +1,6 @@
 
 export 
-const HowToCreateEvent = [
+const howToCreateEvent = [
     {
         title:"Title",
         doc: "Give your event a clear and catchy name Example: Summer Music Festival 2025"
