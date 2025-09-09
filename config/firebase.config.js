@@ -1,5 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { getApp, getApps, initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -7,7 +8,7 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: process.env.FIREBASE_API_KEY,
+  apiKey: "AIzaSyATBFUi8EAlWa-hmPR5EbzotFtymjxd9u4",
   authDomain: "unipeers-1d6d5.firebaseapp.com",
   projectId: "unipeers-1d6d5",
   storageBucket: "unipeers-1d6d5.firebasestorage.app",
@@ -16,10 +17,10 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = 
-!getApps().length ? initializeApp(firebaseConfig) : getApp();
+const app = getApps().length < 1 ? initializeApp(firebaseConfig) : getApp();
 const db = getFirestore(app);
+const auth = getAuth(app);
 
-export { db };
+export { auth, db };
 
 
