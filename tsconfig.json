@@ -12,6 +12,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".expo/types/**/*.ts",
-    "expo-env.d.ts"
-  ]
+    "expo-env.d.ts",
+    "nativewind-env.d.ts"
+, "app/(tabs)/create.jsx", "utils/format-date.utils.js", "app/(tabs)/saved.jsx", "app/(tabs)/profile.jsx", "app/(tabs)/index.jsx", "app/(tabs)/_layout.jsx", "app/index.jsx", "app/about.jsx", "app/_layout.jsx"  ]
 }
